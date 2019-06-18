@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require ("express");
 const mysql = require("mysql");
 const app = express();
@@ -16,6 +17,19 @@ app.get("/api/patient",(req, res) => {
 
         res.json(rows);
     });
+});
+app.get("/api/patient/:id",(req, res) =>{
+    pool.query(
+        "SELECT id, patient_name FROM patient WHERE id = ?",
+        [req.params.id],
+        (error, rows) =>{
+            if (error) {
+                return res.status(500).json({error});
+            }
+
+            res.json(rows);
+        }
+    );
 });
 app.listen(600, function (){
     console.log("App listening on port 600");
