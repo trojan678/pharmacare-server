@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const express = require ("express");
+const express = require("express");
 const mysql = require("mysql");
 const app = express();
 const pool = mysql.createPool({
@@ -9,28 +9,41 @@ const pool = mysql.createPool({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
 });
-app.get("/api/patient",(req, res) => {
-    pool.query("SELECT * FROM patient",(error, rows) =>{
+app.get("/api/patient", (req, res) => {
+    pool.query("SELECT * FROM patient", (error, rows) => {
         if (error) {
-            return res.status(500).json({error});
+            return res.status(500).json({ error });
         }
 
         res.json(rows);
     });
 });
-app.get("/api/patient/:id",(req, res) =>{
+app.get("/api/patient/:id", (req, res) => {
     pool.query(
         "SELECT id, patient_name FROM patient WHERE id = ?",
         [req.params.id],
-        (error, rows) =>{
+        (error, rows) => {
             if (error) {
-                return res.status(500).json({error});
+                return res.status(500).json({ error });
             }
 
             res.json(rows);
         }
     );
 });
-app.listen(600, function (){
+app.get("/api/patient/:id/Drug_prescription", (req, res) => {
+    pool.query(
+        'SELECT p.Huduma_number,p.location FROM prescription JOIN patient p ON p.id = p.id WHERE p.id = ?',
+        [req.params.id],
+        (error, rows) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(rows);
+        }
+    );
+});
+app.listen(600, function () {
     console.log("App listening on port 600");
 });
