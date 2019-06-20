@@ -31,9 +31,9 @@ app.get("/api/patient/:id", (req, res) => {
         }
     );
 });
-app.get("/api/patient/:id/Drug_prescription", (req, res) => {
+app.get("/api/patient/:id/chemist", (req, res) => {
     pool.query(
-        'SELECT p.Huduma_number,p.location FROM prescription JOIN patient p ON p.id = p.id WHERE p.id = ?',
+        'SELECT m.medicine_catalog,p.Huduma_number,p.location,p.patient_name FROM medicine m  JOIN patient p ON p.id = m.patient_id WHERE m.patient_id = ?',
         [req.params.id],
         (error, rows) => {
             if (error) {
