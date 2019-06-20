@@ -33,7 +33,7 @@ app.get("/api/patient/:id", (req, res) => {
 });
 app.get("/api/patient/:id/chemist", (req, res) => {
     pool.query(
-        'SELECT m.medicine_catalog,p.Huduma_number,p.location,p.patient_name FROM medicine m  JOIN patient p ON p.id = m.patient_id WHERE m.patient_id = ?',
+        'SELECT m.medicine_catalog,p.Huduma_number,p.location,p.patient_name FROM medicine m  JOIN patient p ON p.id = m.patient_id WHERE m.patient_id = ? GROUP BY p.huduma_number,m.medicine_catalog' ,
         [req.params.id],
         (error, rows) => {
             if (error) {
@@ -44,6 +44,20 @@ app.get("/api/patient/:id/chemist", (req, res) => {
         }
     );
 });
+app.get("/api/chemist/:id", (req, res) => {
+       pool.query(
+           'SELECT c.id,c.drug_name,m.medicine_catalog FROM chemist c JOIN medicine m ON m.medicine_catalog = c.drug_name WHERE c.drug_name = ? GROUP BY c.drug_name',
+           [req.params.id],
+           (error, rows) => {
+               if (error){
+                   return res.status(500).json({ error });
+               }
+
+               res.json(rows);
+           }
+       );
+     
+    });  
 app.listen(600, function () {
     console.log("App listening on port 600");
 });
