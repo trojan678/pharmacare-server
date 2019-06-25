@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client":"cd client && npm start"
   },
   "author": "peter njoroge\"p19njoroge@gmail.com\"",
   "license": "ISC",
