@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "client":"cd client && npm start"
+    "client":"cd client && npm start",
+    "dev":"concurrently \"npm run server\" \"npm run client\""
   },
   "author": "peter njoroge\"p19njoroge@gmail.com\"",
   "license": "ISC",
