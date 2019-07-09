@@ -76,7 +76,8 @@ app.get("/api/chemist/:id", (req, res) => {
              res.json(results.insertId);
          }
      );
- });    
+ });
+     
 app.listen(9000, function () {
     console.log("App listening on port 9000");
 });
