@@ -3,8 +3,8 @@ import Drugs from "Drugs";
 
 function Druglist({ Drugslisted}) {
     return (
-        <div className="mvls-container">
-            <div className="mvls-Druglist">
+        <div className="drg-container">
+            <div className="drg-Druglist">
                 {Drugslisted.map(m =>(
                     <Drug key={d.id}Drugslisted={d}/>
                 ))}

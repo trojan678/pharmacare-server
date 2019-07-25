@@ -2,9 +2,9 @@ import React from "react";
 
 function NavBar (){
     return (
-        <div className="mvls-container">
-            <nav className="mvls-nav">
-                <span className="mvls-title">PHARMACARE</span>
+        <div className="drg-container">
+            <nav className="drg-nav">
+                <span className="drg-title">PHARMACARE</span>
                 <a href="/">search</a>>
                 <a href="/Parmacare">Pharmacare</a>
                 </nav>

@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <Navbar/>
       </header>
-      <main className="mvls-main">
+      <main className="drg-main">
         <Druglist Drugslisted={DRUGS_LISTED} /> 
       </main>
     </div>
