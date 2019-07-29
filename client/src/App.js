@@ -5,11 +5,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="drgls-app">
+      <header className="drgls-header">
         <Navbar/>
       </header>
-      <main className="drg-main">
+      <main className="drgls-main">
         <Druglist Drugslisted={DRUGS_LISTED} /> 
       </main>
     </div>

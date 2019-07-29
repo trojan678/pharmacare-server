@@ -1,22 +1,23 @@
 import React from "react";
 
-function patient({ Drugslisted }) {
-    const { id, Drug_prescription,Huduma_number,patient_Name,location} = Drugslisted;
-    let prescription = "";
-    if (prescription_count === 0) {
-        prescription = "Drug not listed";
-     } else if  ( prescription_count === 1){
-         prescription = "Available";
-     } else {
-         prescription = "Not available";
-     }
+function Drugs({ medicinelist }) {
+    const {  poster_url,  } = medicinelist;
+    
 
-     return (
-         <div className="patient">
-             
-                 </div>
-                 
-     )
- }
+    return (
+        <div className="drgls-movie">
+            <img className="drgls-poster" src={poster_url} alt={title} />
+            <div className="drgls-medicine-body">
+                <div className="drgls-title">{title}</div>
+                
+            </div>
+            <div className="drgls-medicine-footer">
+                <a href={`/drug/${id}`} className="drgls-btn drgls-btn-Drugs">
+                    See medicine
+                </a>
+            </div>
+        </div>
+    );
+}
 
- export default App;
+export default Drugs;
