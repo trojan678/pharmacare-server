@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Drugs from './Drugs';
+import Loading from "./Loading";
+import Error from "./Error";
 
 class DrugList extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class DrugList extends React.Component {
         this.setState({ loading: true, error: false });
 
         axios
-            .get("/api/medicinelist")
+            .get("/api/chemist")
             .then(response => {
                 this.setState({
                     medicinelist: response.data,
@@ -38,7 +40,15 @@ class DrugList extends React.Component {
     }
 
     render() {
-        const { medicinelist } = this.state;
+        const { medicinelist, loading, error } = this.state;
+
+         if (loading) {
+             return <Loading />;
+       }
+
+         if (error) {
+             return <Error />;
+         }
 
         return (
             <div className="drgls-container">

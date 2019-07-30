@@ -33,7 +33,8 @@ app.get("/api/patient/:id", (req, res) => {
 });
 app.get("/api/chemist", (req, res) => {
     pool.query(
-        "SELECT * FROM chemist WHERE id = ?",
+        "SELECT * FROM chemist WHERE id = 2",
+        
         [req.params.id],
         (error, rows) => {
             if (error) {
