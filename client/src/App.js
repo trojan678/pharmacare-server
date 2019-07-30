@@ -10,7 +10,7 @@ function App() {
         <Navbar/>
       </header>
       <main className="drgls-main">
-        <Druglist Drugslisted={DRUGS_LISTED} /> 
+        <Druglist />
       </main>
     </div>
   );

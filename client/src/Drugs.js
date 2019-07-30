@@ -6,7 +6,7 @@ function Drugs({ medicinelist }) {
 
     return (
         <div className="drgls-movie">
-            <img className="drgls-poster" src={poster_url} alt={title} />
+            <img className="drgls-poster" src={"https://images.pexels.com/photos/415825/pexels-photo-415825.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"} alt={title} />
             <div className="drgls-medicine-body">
                 <div className="drgls-title">{title}</div>
                 
