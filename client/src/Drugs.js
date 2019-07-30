@@ -1,21 +1,22 @@
 import React from "react";
 
-function Drugs({ medicinelist }) {
-    const {  poster_url,  } = medicinelist;
-    
+function Drugs({ drug }) {
+    const { id, Drug_name } = drug;
+
 
     return (
-        <div className="drgls-movie">
-            <img className="drgls-poster" src={"https://images.pexels.com/photos/415825/pexels-photo-415825.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"} alt={title} />
-            <div className="drgls-medicine-body">
-                <div className="drgls-title">{title}</div>
-                
+        <div className="drgls-drug">
+             
+            <div className="drgls-Drug-body">
+                <div className="drgls-id">{id}</div>
+                <div classname="drgls-Drug_name">{Drug_name}</div>
+
             </div>
-            <div className="drgls-medicine-footer">
-                <a href={`/drug/${id}`} className="drgls-btn drgls-btn-Drugs">
+            <div className="drgls-Drug-footer">
+                <a href={`/chemist/${id}`} className="drgls-btn drgls-btn-Drugs">
                     See medicine
                 </a>
-            </div>
+             </div>
         </div>
     );
 }

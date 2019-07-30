@@ -31,6 +31,19 @@ app.get("/api/patient/:id", (req, res) => {
         }
     );
 });
+app.get("/api/chemist", (req, res) => {
+    pool.query(
+        "SELECT * FROM chemist WHERE id = ?",
+        [req.params.id],
+        (error, rows) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(rows);
+        }
+    );
+});
 app.get("/api/patient/:id/chemist", (req, res) => {
     pool.query(
         'SELECT m.medicine_catalog,p.Huduma_number,p.location,p.patient_name FROM medicine m  JOIN patient p ON p.id = m.patient_id WHERE m.patient_id = ? GROUP BY p.huduma_number,m.medicine_catalog' ,
@@ -58,7 +71,7 @@ app.get("/api/chemist/:id", (req, res) => {
        );
      
     }); 
- app.post("/api/chemist", (req, res) => {
+ app.post("/api/chemist/name", (req, res) => {
      const chemist = req.body;
 
      if (chemist.name) {

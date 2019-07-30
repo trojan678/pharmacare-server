@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from 'Navbar';
-import Druglist from 'Druglist';
+import Navbar from './Navbar';
+import Druglist from './Druglist';
 import './App.css';
 
 function App() {
