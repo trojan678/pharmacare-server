@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 function Drugs({ drug }) {
     const { id, Drug_name } = drug;
@@ -13,9 +14,9 @@ function Drugs({ drug }) {
 
             </div>
             <div className="drgls-Drug-footer">
-                <a href={`/chemist/${id}`} className="drgls-btn drgls-btn-Drugs">
+                <Link to={`/chemist/${id}`} className="drgls-btn drgls-btn-Drugs">
                     See medicine
-                </a>
+                </Link>
              </div>
         </div>
     );
