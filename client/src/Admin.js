@@ -1,9 +1,10 @@
 import React from "react";
+import SearchAdmin from "./SearchAdmin";
 
 function Admin() {
     return (
-        <div>
-            <h1>Admin Page</h1>
+        <div className="drgls-container">
+            <SearchAdmin />
         </div>
     );
 }
