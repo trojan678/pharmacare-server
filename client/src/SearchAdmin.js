@@ -101,6 +101,8 @@ class SearchAdmin extends React.Component {
         const checked = e.target.checked;
         const value = e.target.value;
 
+        this.setState({ [checked]: value});
+
         
     }
 
@@ -234,7 +236,7 @@ class SearchAdmin extends React.Component {
             validationErrors,
             formSuccess,
             formError,
-            movies,
+            
             tableLoading,
             tableError,
             deleteSuccess
