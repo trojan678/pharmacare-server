@@ -108,7 +108,10 @@ class SearchAdmin extends React.Component {
         e.preventDefault();
 
         const {
+            id,
             drugname,
+            editing,
+            chemist,
         } = this.state;
 
         if (this.isValid()) {
